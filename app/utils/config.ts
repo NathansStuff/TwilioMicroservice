@@ -13,7 +13,7 @@ export const IS_VERIFICATION_DISABLED =
 
 export function checkEnvVariables(): void {
     if (process.env.PORT === undefined) {
-        console.log('Warning: PORT is not set, using default value 5000');
+        console.log('Warning: PORT is not set, using default value');
     }
 
     if (
