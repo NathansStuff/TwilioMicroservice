@@ -6,6 +6,7 @@ import authenticationRoutes from './routes/authenticationRoutes';
 console.log('Initializing server...');
 console.log('Checking environment variables...');
 checkEnvVariables();
+
 const app = express();
 app.use(express.json());
 
