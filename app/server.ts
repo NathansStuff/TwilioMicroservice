@@ -1,14 +1,12 @@
 import express from 'express';
 import { errorHandler } from './middleware/errorMiddleware';
 import { PORT } from './utils/config';
-// import PokemonRoutes from './routes/PokemonRoutes';
-// import userRoutes from './routes/userRoutes';
+import authenticationRoutes from './routes/authenticationRoutes';
 
 const app = express();
 app.use(express.json());
 
-// app.use('/api/Pokemons', PokemonRoutes);
-// app.use('/api/users', userRoutes);
+app.use('/authentication', authenticationRoutes);
 
 app.use(errorHandler);
 
