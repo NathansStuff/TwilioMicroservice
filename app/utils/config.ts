@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import { checkValueExists } from './helpers';
 dotenv.config();
 
 export const PORT = process.env.PORT ?? 5000;
@@ -24,19 +25,19 @@ export function checkEnvVariables(): void {
         );
     }
 
-    if (process.env.AUTH_TOKEN === null) {
+    if (!checkValueExists(process.env.AUTH_TOKEN)) {
         throw new Error('AUTH_TOKEN must be set');
     }
 
-    if (process.env.TWILIO_ACCOUNT_SID === null) {
+    if (!checkValueExists(process.env.TWILIO_ACCOUNT_SID)) {
         throw new Error('TWILIO_ACCOUNT_SID must be set');
     }
 
-    if (process.env.TWILIO_AUTH_TOKEN === null) {
+    if (!checkValueExists(process.env.TWILIO_AUTH_TOKEN)) {
         throw new Error('TWILIO_AUTH_TOKEN must be set');
     }
 
-    if (process.env.TWILIO_SERVICE_SID === null) {
+    if (!checkValueExists(process.env.TWILIO_SERVICE_SID)) {
         throw new Error('TWILIO_SERVICE_SID must be set');
     }
 
