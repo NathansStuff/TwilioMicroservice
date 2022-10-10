@@ -17,7 +17,6 @@ export function ErrorHandler(error: unknown): HttpException {
         throw new HttpException('Encountered unknown error type', 500);
     }
 
-    console.log(error.message);
     // Check for known errors
     if (error.message.includes('E11000')) {
         throw new HttpException('Object with that ID already exists', 500);

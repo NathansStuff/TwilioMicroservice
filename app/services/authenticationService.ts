@@ -1,7 +1,10 @@
 import Twilio from 'twilio';
 import { VerificationInstance } from 'twilio/lib/rest/verify/v2/service/verification';
 import { VerificationCheckInstance } from 'twilio/lib/rest/verify/v2/service/verificationCheck';
-import { sanitizeCode, sanitizeMobilePhone } from '../sanitizers/sanitizers';
+import {
+    sanitizeCode,
+    sanitizeMobilePhone,
+} from '../sanitizers/authenticationSanitizers';
 import { EVerificationResponseStatus } from '../types/EVerificationResponseStatus';
 import {
     IS_VERIFICATION_DISABLED,
