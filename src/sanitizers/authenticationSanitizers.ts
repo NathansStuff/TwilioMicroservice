@@ -1,3 +1,5 @@
+import { checkIsString, checkNotUndefined, checkMinLength, checkMaxLength, checkEmailRegex } from './generalSanitizer';
+
 export function sanitizeMobilePhone(mobilePhone: string): string {
     // Types
     if (mobilePhone === null || mobilePhone === undefined) {
@@ -28,4 +30,32 @@ export function sanitizeCode(code: string): string {
     }
 
     return code;
+}
+
+export function sanitizeMessage(message: string): string {
+    // Types
+    if (message === null || message === undefined) {
+        throw new Error('message is null or undefined');
+    }
+    if (message.length > 160) {
+        throw new Error('message is greater than 160 characters');
+    }
+
+    return message;
+}
+
+export function sanitizeEmail(email: string, name = 'email'): string {
+    // Types
+    checkIsString(email, name);
+    checkNotUndefined(email, name);
+
+    // Attributes
+    email = email.trim();
+    checkMinLength(email, name, 1);
+    checkMaxLength(email, name, 100);
+    if (checkEmailRegex(email) === null) {
+        throw new Error(`${name} is not a valid email`);
+    }
+
+    return email;
 }

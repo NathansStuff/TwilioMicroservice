@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "node app/server.ts",
-        "dev": "nodemon app/server.ts",
+        "start": "node src/server.ts",
+        "dev": "nodemon src/server.ts",
         "lint": "eslint --ext .js,.ts .",
         "lint-fix": "eslint --ext .js,.ts . --fix",
         "prepare": "husky install"
